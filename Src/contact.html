@@ -292,8 +292,8 @@
                     </div>
                     <!-- Form Content -->
                     <div class="p-6 md:p-8 md:pt-4">
-                        <form class="flex flex-col gap-6">
-                            <!-- Row 1: Name & Mobile -->
+                        <form action="https://formspree.io/f/mrezoqye" method="POST" class="flex flex-col gap-6">
+                            <!-- Row 1: Name & mobile -->
                             <div class="flex flex-col md:flex-row gap-6">
                                 <label class="flex flex-col flex-1 gap-2">
                                     <span class="text-text-main dark:text-gray-200 text-sm font-bold">الاسم
@@ -303,9 +303,9 @@
                                             class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
                                             <span class="material-symbols-outlined text-[20px]">person</span>
                                         </div>
-                                        <input
+                                        <input name="name"
                                             class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400"
-                                            placeholder="أدخل اسمك الثلاثي" type="text" />
+                                            placeholder="أدخل اسمك الثلاثي" type="text" required />
                                     </div>
                                 </label>
                                 <label class="flex flex-col flex-1 gap-2">
@@ -315,14 +315,27 @@
                                             class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
                                             <span class="material-symbols-outlined text-[20px]">smartphone</span>
                                         </div>
-                                        <input
+                                        <input name="phone"
                                             class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400 dir-ltr text-right"
-                                            placeholder="05xxxxxxxx" type="tel" />
+                                            placeholder="05xxxxxxxx" type="tel" required />
                                     </div>
                                 </label>
                             </div>
-                            <!-- Row 2: Website -->
+                            <!-- Row 2: Email & Website -->
                             <div class="flex flex-col md:flex-row gap-6">
+                                <label class="flex flex-col flex-1 gap-2">
+                                    <span class="text-text-main dark:text-gray-200 text-sm font-bold">البريد
+                                        الإلكتروني</span>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+                                            <span class="material-symbols-outlined text-[20px]">mail</span>
+                                        </div>
+                                        <input name="email"
+                                            class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400 dir-ltr text-right"
+                                            placeholder="example@mail.com" type="email" required />
+                                    </div>
+                                </label>
                                 <label class="flex flex-col flex-1 gap-2">
                                     <span class="text-text-main dark:text-gray-200 text-sm font-bold">رابط الموقع
                                         الإلكتروني
@@ -332,36 +345,37 @@
                                             class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
                                             <span class="material-symbols-outlined text-[20px]">language</span>
                                         </div>
-                                        <input
+                                        <input name="website"
                                             class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400 dir-ltr text-right"
                                             placeholder="www.example.com" type="url" />
                                     </div>
                                 </label>
-                                <label class="flex flex-col flex-1 gap-2">
-                                    <span class="text-text-main dark:text-gray-200 text-sm font-bold">موضوع
-                                        الرسالة</span>
-                                    <div class="relative">
-                                        <div
-                                            class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
-                                            <span class="material-symbols-outlined text-[20px]">subject</span>
-                                        </div>
-                                        <input
-                                            class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400"
-                                            placeholder="ما هو موضوع استفسارك؟" type="text" />
-                                    </div>
-                                </label>
                             </div>
-                            <!-- Row 3: Inquiry -->
+                            <!-- Row 3: Subject -->
+                            <label class="flex flex-col gap-2">
+                                <span class="text-text-main dark:text-gray-200 text-sm font-bold">موضوع
+                                    الرسالة</span>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+                                        <span class="material-symbols-outlined text-[20px]">subject</span>
+                                    </div>
+                                    <input name="subject"
+                                        class="w-full h-12 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white pr-10 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm placeholder:text-gray-400"
+                                        placeholder="ما هو موضوع استفسارك؟" type="text" required />
+                                </div>
+                            </label>
+                            <!-- Row 4: Inquiry -->
                             <label class="flex flex-col gap-2">
                                 <span class="text-text-main dark:text-gray-200 text-sm font-bold">استفسارك</span>
-                                <textarea
+                                <textarea name="message"
                                     class="w-full h-32 rounded-lg border-border-color bg-gray-50 dark:bg-gray-800 dark:border-gray-600 dark:text-white p-3 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm resize-none placeholder:text-gray-400"
-                                    placeholder="كيف يمكننا مساعدتك في تنمية مشروعك؟"></textarea>
+                                    placeholder="كيف يمكننا مساعدتك في تنمية مشروعك؟" required></textarea>
                             </label>
                             <!-- Submit Button -->
                             <button
                                 class="mt-2 w-full h-12 bg-primary hover:bg-[#0fd652] text-text-main text-base font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                                type="button">
+                                type="submit">
                                 <span>إرسال الطلب</span>
                                 <span
                                     class="material-symbols-outlined text-[20px] dir-ltr transform rotate-180">send</span>
