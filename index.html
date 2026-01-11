@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ghaith Agency - نحن نروي مشروعك ليثمر</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#58aed1",
+                        "secondary": "#232556",
+                        "background-light": "#eef8fa",
+                        "background-dark": "#1a1b41",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2a2c6b",
+                        "text-main": "#232556",
+                        "text-sub": "#4b4d7a",
+                        "border-color": "#d1eef4",
+                    },
+                    fontFamily: {
+                        "display": ["Cairo", "Manrope", "sans-serif"],
+                        "body": ["Cairo", "Manrope", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        @keyframes logo-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .logo-animate {
+            animation: logo-float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .logo-animate:hover {
+            transform: scale(1.1) rotate(2deg);
+            filter: drop-shadow(0 0 8px rgba(88, 174, 209, 0.4));
+        }
+
+        /* Scroll Animation Styles */
+        .reveal {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-fade {
+            transform: scale(0.98);
+        }
+
+        .reveal-up {
+            transform: translateY(40px);
+        }
+
+        .reveal-down {
+            transform: translateY(-40px);
+        }
+
+        .reveal-left {
+            transform: translateX(40px);
+        }
+
+        .reveal-right {
+            transform: translateX(-40px);
+        }
+
+        .reveal-zoom {
+            transform: scale(0.95);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Staggered Delay Utilities */
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-text-main antialiased overflow-x-hidden">
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-surface-light/90 backdrop-blur-md border-b border-border-color">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-20 items-center justify-between">
+                <!-- Logo Area --><a href="index.html" class="flex items-center gap-3"><img src="images/logo.png"
+                        alt="Logo" class="h-12 w-auto logo-animate"></a>
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8"><a
+                        class="text-sm font-semibold text-primary transition-colors" href="index.html">الرئيسية</a><a
+                        class="text-sm font-semibold text-text-sub hover:text-primary transition-colors"
+                        href="Src/about.html">من نحن</a><a
+                        class="text-sm font-semibold text-text-sub hover:text-primary transition-colors"
+                        href="Src/services.html">خدماتنا</a><a
+                        class="text-sm font-semibold text-text-sub hover:text-primary transition-colors"
+                        href="Src/contact.html">تواصل معنا</a></nav>
+                <!-- CTA Button -->
+                <div class="hidden md:block"><a href="Src/contact.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-5 rounded-lg transition-all shadow-lg shadow-primary/20 text-sm flex items-center gap-2"><span>استشارة
+                            مجانية</span><span class="material-symbols-outlined text-[18px]">arrow_back</span></a></div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden"><button id="menu-btn" class="text-text-main p-2"><span
+                            class="material-symbols-outlined">menu</span></button></div>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30">
+            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/20 blur-[100px]">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-green-200/30 blur-[120px]">
+            </div>
+        </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Text Content -->
+                <div class="flex flex-col gap-6 max-w-2xl reveal reveal-left">
+
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-black text-secondary leading-[1.2] lg:leading-[1.15]">
+                        لا نكتفي بالتسويق.. <br /><span class="relative inline-block text-primary">نحن نروي
+                            <svg class="absolute w-full h-3 -bottom-1 right-0 text-primary opacity-30"
+                                preserveaspectratio="none" viewbox="0 0 100 20">
+                                <path d="M0 15 Q 50 20 100 15" fill="none" stroke="currentColor" stroke-width="6">
+                                </path>
+                            </svg></span>مشروعك ليثمر. </h1>
+                    <p class="text-lg text-text-sub leading-relaxed max-w-xl">نأخذ بيدك من مرحلة "التواجد"
+                        إلى مرحلة "النمو الحقيقي" . <br />نقدم لك حلول تسويقية متكاملة (هوية، محتوى،
+                        إعلانات) مصممة خصيصًا لمشروعك لتضاعف أرباحك وتبني علامتك. </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-2"><a href="Src/contact.html"
+                            class="bg-secondary hover:bg-secondary/90 text-white font-bold h-12 px-8 rounded-lg transition-all shadow-xl shadow-secondary/10 flex items-center justify-center gap-2"><span>اطلب
+                                استشارة مجانية الآن</span><span
+                                class="material-symbols-outlined text-[20px] rtl:rotate-180">arrow_forward</span></a><a
+                            href="Src/services.html"
+                            class="bg-white border border-border-color hover:border-primary hover:text-primary text-text-main font-bold h-12 px-8 rounded-lg transition-all flex items-center justify-center gap-2"><span>خدماتنا</span><span
+                                class="material-symbols-outlined text-[20px]">explore</span></a></div>
+                    <!-- Trust Stats -->
+
+                </div>
+                <!-- Hero Image -->
+                <div
+                    class="relative w-full h-full min-h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl shadow-green-900/10 group reveal reveal-right stagger-2">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent z-10">
+                    </div>
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Abstract vibrant green plant leaf with water drops representing growth and freshness"
+                        style="background-image: url('images/home-page-hero.webp');"></div>
+                    <!-- Floating Card Element -->
+                    <div
+                        class="absolute bottom-8 right-8 z-20 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/50 max-w-[200px] animate-bounce-slow">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="bg-green-100 p-1.5 rounded-full text-green-600"><span
+                                    class="material-symbols-outlined text-sm">trending_up</span>
+                            </div><span class="text-sm font-bold text-secondary">نمو مستمر</span>
+                        </div>
+                        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full w-[85%] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-20 bg-white" id="services">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-up">
+                <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-3">خدماتنا المتكاملة</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-secondary mb-4">كل ما يحتاجه مشروعك لينمو</h3>
+                <p class="text-text-sub text-lg">نقدم باقة شاملة من الخدمات الرقمية المصممة خصيصاً لتعزيز حضورك
+                    وتحقيق أهدافك البيعية.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div
+                    class="group p-8 rounded-2xl bg-secondary text-white text-center flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 reveal reveal-zoom stagger-1">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">palette</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">تأسيس الهوية (Branding)</h4>
+                    <p class="text-white/70 leading-relaxed mb-6 text-sm">نبني لك هوية بصرية ولفظية لا تُنسى، تجعل
+                        عميلك يثق بك من النظرة الأولى.</p>
+                    <a href="Src/services.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">التفاصيل</a>
+                </div>
+                <!-- Service Card 2 -->
+                <div
+                    class="group p-8 rounded-2xl bg-secondary text-white text-center flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 reveal reveal-zoom stagger-2">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">share</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">إدارة السوشيال ميديا (Management)</h4>
+                    <p class="text-white/70 leading-relaxed mb-6 text-sm">محتوى إبداعي يومي يحرك حساباتك،
+                        وتصاميم تخطف العين، وردود سريعة تحول المتابع لعميل.</p>
+                    <a href="Src/services.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">التفاصيل</a>
+                </div>
+                <!-- Service Card 3 -->
+                <div
+                    class="group p-8 rounded-2xl bg-secondary text-white text-center flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 reveal reveal-zoom stagger-3">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">campaign</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">الحملات الممولة (ADS Management)</h4>
+                    <p class="text-white/70 leading-relaxed mb-6 text-sm">نصل لعميلك الجاهز للشراء في الوقت
+                        المناسب، بأقل تكلفة ممكنة وأعلى عائد (ROI).</p>
+                    <a href="Src/services.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">التفاصيل</a>
+                </div>
+                <!-- Service Card 4 -->
+                <div
+                    class="group p-8 rounded-2xl bg-secondary text-white text-center flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 reveal reveal-zoom stagger-1">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">devices</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">تصميم المواقع والمتاجر الإلكترونية</h4>
+                    <p class="text-white/70 leading-relaxed mb-6 text-sm">واجهة رقمية متكاملة.. تحوّل
+                        الزوار إلى عملاء.</p>
+                    <a href="Src/services.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">التفاصيل</a>
+                </div>
+                <!-- Service Card 5 -->
+                <div
+                    class="group p-8 rounded-2xl bg-secondary text-white text-center flex flex-col items-center justify-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 reveal reveal-zoom stagger-2">
+                    <div
+                        class="w-16 h-16 rounded-xl bg-white/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-4xl">monitoring</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">الاستشارات والتطوير (Growth)</h4>
+                    <p class="text-white/70 leading-relaxed mb-6 text-sm">نحلل وضعك الحالي، نكتشف
+                        أماكن الهدر، ونضع لك خطة عملية لتصحيح المسار.</p>
+                    <a href="Src/services.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">التفاصيل</a>
+                </div>
+                <!-- CTA Card in Grid -->
+                <div
+                    class="flex flex-col items-center justify-center p-8 rounded-2xl bg-secondary text-white text-center reveal reveal-zoom stagger-3">
+                    <h4 class="text-xl font-bold mb-4">هل تبحث عن خدمة مخصصة؟</h4>
+                    <p class="text-white/70 mb-6 text-sm">نحن هنا لنستمع لاحتياجاتك
+                        ونفصل الحل الأنسب لك.</p><a href="Src/contact.html"
+                        class="bg-primary hover:bg-primary/90 text-secondary font-bold py-2.5 px-6 rounded-lg transition-all w-full text-center">تواصل
+                        معنا الآن </a>
+                </div>
+            </div>
+            <div class="mt-12 flex justify-center"><a href="Src/services.html"
+                    class="flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-secondary font-bold transition-colors"><span>عرض
+                        كل التفاصيل</span><span class="material-symbols-outlined text-sm">arrow_back</span></a>
+            </div>
+        </div>
+    </section>
+    <!-- Growth Journey Section (Process) -->
+    <section class="py-20 bg-background-light relative overflow-hidden" id="process">
+        <!-- Decorative bg -->
+        <div class="absolute inset-0 opacity-[0.03]"
+            style="background-image: radial-gradient(#13ec5b 1px, transparent 1px); background-size: 32px 32px;">
+        </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+
+                <h3 class="text-3xl md:text-4xl font-bold text-secondary">رحلة النمو مع غيث</h3>
+            </div>
+            <div class="relative">
+                <!-- Connecting Line (Desktop) -->
+                <div
+                    class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-l from-gray-200 via-primary/50 to-gray-200 -translate-y-1/2 z-0">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-border-color shadow-sm flex flex-col items-center text-center relative group reveal reveal-up stagger-1">
+                        <div
+                            class="w-16 h-16 rounded-full bg-secondary text-primary border-4 border-white shadow-lg flex items-center justify-center mb-4 text-2xl font-bold z-10">
+                            1</div>
+                        <h4 class="text-xl font-bold text-secondary mb-2">التحليل (الفحص)</h4>
+                        <p class="text-text-sub text-sm">نتواصل معك، نفهم أهدافك، ونفحص حساباتك
+                            ومنافسيك.</p><span
+                            class="material-symbols-outlined text-6xl text-gray-100 absolute -bottom-4 -left-4 -z-10 group-hover:text-green-50 transition-colors">analytics</span>
+                    </div>
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-border-color shadow-sm flex flex-col items-center text-center relative group md:-mt-8 reveal reveal-up stagger-2">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary text-secondary border-4 border-white shadow-lg flex items-center justify-center mb-4 text-2xl font-bold z-10">
+                            2</div>
+                        <h4 class="text-xl font-bold text-secondary mb-2">الخطة (وضع البذور)
+                        </h4>
+                        <p class="text-text-sub text-sm">نجهز لك استراتيجية واضحة (محتوى +
+                            إعلانات) تناسب ميزانيتك.</p><span
+                            class="material-symbols-outlined text-6xl text-gray-100 absolute -bottom-4 -left-4 -z-10 group-hover:text-green-50 transition-colors">map</span>
+                    </div>
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl border border-border-color shadow-sm flex flex-col items-center text-center relative group reveal reveal-up stagger-3">
+                        <div
+                            class="w-16 h-16 rounded-full bg-secondary text-primary border-4 border-white shadow-lg flex items-center justify-center mb-4 text-2xl font-bold z-10">
+                            3</div>
+                        <h4 class="text-xl font-bold text-secondary mb-2">التنفيذ
+                            والقياس (الري والحصاد)</h4>
+                        <p class="text-text-sub text-sm">ننطلق في العمل، ونراقب النتائج
+                            يومياً لنحسن الأداء.</p><span
+                            class="material-symbols-outlined text-6xl text-gray-100 absolute -bottom-4 -left-4 -z-10 group-hover:text-green-50 transition-colors">rocket_launch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Target Audience Section -->
+    <section class="py-20 bg-secondary text-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal reveal-left">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">أنت في المكان الصحيح
+                        إذا كنت... </h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 reveal reveal-up stagger-1">
+                            <div class="mt-1 min-w-[24px] text-primary"><span
+                                    class="material-symbols-outlined">check_circle</span></div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">صاحب مشروع طموح:</h4>
+                                <p class="text-gray-200">"لديك منتج رائع أو خدمة مميزة، لكنك تشعر أن
+                                    حساباتك على
+                                    السوشيال ميديا لا تعكس جودتها الحقيقية."</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal reveal-up stagger-2">
+                            <div class="mt-1 min-w-[24px] text-primary"><span
+                                    class="material-symbols-outlined">check_circle</span></div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">رائد أعمال مشغول:</h4>
+                                <p class="text-gray-200">"تدير كل شيء بنفسك، وتبحث عن فريق يرفع عنك عبء
+                                    الكتابة والتسويق
+                                    لتتفرغ للتطوير."</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 reveal reveal-up stagger-3">
+                            <div class="mt-1 min-w-[24px] text-primary"><span
+                                    class="material-symbols-outlined">check_circle</span></div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">تبحث عن نتائج لا وعود:
+                                </h4>
+                                <p class="text-gray-200">"جربت التسويق سابقاً ولم تنجح، وتبحث الآن عن
+                                    خطة واضحة بلغة
+                                    الأرقام والمبيعات، لا مجرد لايكات."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="relative h-[400px] bg-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700 reveal reveal-right">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-70"
+                        data-alt="Team meeting in a modern office looking at data on a screen"
+                        style="background-image: url('images/team.webp');">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-8 right-8 left-8">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl">
+                            <p class="text-xl font-bold mb-2">"غيّرنا مفهوم التسويق لديهم" </p>
+                            <div class="flex items-center gap-2"><span
+                                    class="text-primary material-symbols-outlined text-sm">star</span><span
+                                    class="text-primary material-symbols-outlined text-sm">star</span><span
+                                    class="text-primary material-symbols-outlined text-sm">star</span><span
+                                    class="text-primary material-symbols-outlined text-sm">star</span><span
+                                    class="text-primary material-symbols-outlined text-sm">star</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Ghaith -->
+    <section class="py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-secondary mb-4">لماذا غيث؟</h3>
+                <p class="text-text-sub">ثلاث ركائز تجعلنا الخيار الأول للمشاريع الناجحة</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-background-light rounded-xl border-t-4 border-primary reveal reveal-up stagger-1">
+                    <div class="mb-4 text-secondary"><span class="material-symbols-outlined text-4xl">handshake</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-secondary mb-2">لسنا مجرد منفذين</h4>
+                    <p class="text-text-sub">نحن نفكر معك كشريك، نحلل أرقامك، نفهم ميزانيتك، ونقترح
+                        الأفضل لنموك.</p>
+                </div>
+                <div class="p-6 bg-background-light rounded-xl border-t-4 border-secondary reveal reveal-up stagger-2">
+                    <div class="mb-4 text-secondary"><span
+                            class="material-symbols-outlined text-4xl">data_exploration</span></div>
+                    <h4 class="text-xl font-bold text-secondary mb-2">لغة الأرقام أولاً</h4>
+                    <p class="text-text-sub">لا نعدك بـ "الانتشار" فقط، بل نعدك بـ "النتائج" .
+                        تقاريرنا واضحة: كم صرفت؟ وكم حققت؟</p>
+                </div>
+                <div class="p-6 bg-background-light rounded-xl border-t-4 border-primary reveal reveal-up stagger-3">
+                    <div class="mb-4 text-secondary"><span
+                            class="material-symbols-outlined text-4xl">all_inclusive</span></div>
+                    <h4 class="text-xl font-bold text-secondary mb-2">كل شيء تحت سقف واحد</h4>
+                    <p class="text-text-sub">من تصميم الشعار، وكتابة المحتوى، إلى إدارة الحملات،
+                        نوفّر وقتك وجهدك في مكان واحد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Final CTA Section -->
+    <section class="py-24 bg-gradient-to-br from-green-50 to-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]">
+        </div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px]">
+        </div>
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal reveal-up">
+            <h2 class="text-4xl md:text-5xl font-black text-secondary mb-6">جاهز تتواصل معنا؟
+            </h2>
+            <p class="text-xl text-text-sub mb-10 max-w-2xl mx-auto">احصل على استشارة تسويقية
+                مجانية الآن ودعنا نضع بذور النجاح لمشروعك. </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4"><a href="Src/contact.html"
+                    class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-secondary text-lg font-bold py-4 px-10 rounded-xl transition-all shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-1 text-center">احصل
+                    على استشارة تسويقية مجانية </a><a href="https://wa.me/201277273707" target="_blank"
+                    class="w-full sm:w-auto bg-white border-2 border-secondary/10 hover:border-secondary text-secondary text-lg font-bold py-4 px-10 rounded-xl transition-all text-center">تواصل
+                    عبر واتساب </a></div>
+            <p class="mt-6 text-sm text-text-sub opacity-70">رد سريع خلال 24 ساعة • لا التزام
+                مسبق</p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8 border-t border-white/10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Info -->
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-2 bg-white rounded-xl p-2 w-fit"><img src="images/logo.png"
+                            alt="Logo" class="h-10 w-auto logo-animate"></div>
+                    <p class="text-gray-400 text-sm leading-relaxed">نحن نساعد العلامات
+                        التجارية على النمو والازدهار من خلال استراتيجيات تسويقية مبتكرة
+                        تعتمد على البيانات. </p>
+                </div>
+                <!-- Links 1 -->
+                <div>
+                    <h5 class="text-primary font-bold mb-4">روابط سريعة</h5>
+                    <ul class="flex flex-col gap-2 text-gray-300 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="index.html">الرئيسية</a></li>
+                        <li><a class="hover:text-white transition-colors" href="Src/about.html">من نحن</a></li>
+                        <li><a class="hover:text-white transition-colors" href="Src/services.html">خدماتنا</a></li>
+                        <li><a class="hover:text-white transition-colors" href="Src/contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <!-- Links 2 -->
+                <div>
+                    <h5 class="text-primary font-bold mb-4">الخدمات</h5>
+                    <ul class="flex flex-col gap-2 text-gray-300 text-sm">
+                        <li><a class="hover:text-white transition-colors" href="Src/services.html">إدارة التواصل
+                                الاجتماعي</a></li>
+                        <li><a class="hover:text-white transition-colors" href="Src/services.html">تحسين محركات
+                                البحث</a></li>
+                        <li><a class="hover:text-white transition-colors" href="Src/services.html">الإعلانات الممولة</a>
+                        </li>
+                        <li><a class="hover:text-white transition-colors" href="Src/services.html">تطوير الويب</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h5 class="text-primary font-bold mb-4">تواصل معنا</h5>
+                    <ul class="flex flex-col gap-3 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary text-sm">mail</span><span>ghaithagency00@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary text-sm">call</span><span dir="ltr">+20
+                                127 727 3707</span></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 وكالة غيث. جميع الحقوق محفوظة.</p><a
+                    class="text-gray-400 hover:text-primary transition-colors"
+                    href="https://www.instagram.com/ghaith_agency?igsh=MXRtNGo2NzQ3bzNwYw==" target="_blank"><span
+                        class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg></a><a class="text-gray-400 hover:text-primary transition-colors"
+                    href="https://www.tiktok.com/@ghaith_agency?_r=1&_t=ZS-92MXTMOJ8nh" target="_blank"><span
+                        class="sr-only">TikTok</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.18-1.3-.22-.1-.42-.21-.62-.33-.33-.2-.65-.42-.95-.67V15.04c.02 3.15-.45 6.38-3.12 8.16-2.42 1.7-5.81 1.58-7.94-.3-2.23-1.88-2.67-5.18-1.39-7.71 1.11-2.13 3.53-3.47 5.92-3.15.54.06 1.08.2 1.6.41V8.42c-.89-.28-1.83-.41-2.77-.4-3.11-.01-6.22 1.44-7.65 4.19-1.57 2.87-1.12 6.64 1.05 9.1 2.14 2.5 5.86 3.11 8.65 1.55 2.17-1.17 3.32-3.53 3.4-5.96V.02z" />
+                    </svg></a><a class="text-gray-400 hover:text-primary transition-colors"
+                    href="https://wa.me/201277273707" target="_blank"><span class="sr-only">WhatsApp</span><svg
+                        class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412s-1.238 6.164-3.483 8.413c-2.246 2.246-5.231 3.484-8.415 3.484-.002 0-.003 0-.005 0-2.099 0-4.145-.547-5.949-1.586l-6.03 1.58zm6.549-3.813h.001l.341.203c1.55.918 3.668 1.48 5.485 1.48h.001c5.441 0 9.859-4.417 9.861-9.861.001-2.636-1.028-5.114-2.897-6.984s-4.349-2.898-6.985-2.898c-5.444 0-9.882 4.437-9.884 9.882 0 1.944.576 3.84 1.666 5.492l.223.336-1.096 4.002 4.1-.11l-.117-.242zm11.728-6.84c-.301-.151-1.78-.878-2.056-.978-.275-.1-.476-.151-.676.151-.2.301-.777.978-.951 1.178-.175.201-.351.226-.651.075-.3-.151-1.268-.467-2.416-1.491-.892-.796-1.494-1.78-1.67-2.08-.175-.301-.019-.463.131-.613.135-.135.301-.351.451-.527.151-.175.201-.301.301-.502.1-.201.05-.376-.025-.527-.075-.151-.676-1.631-.926-2.233-.244-.586-.492-.507-.676-.516-.175-.008-.376-.01-.576-.01s-.527.075-.802.376c-.275.301-1.052 1.028-1.052 2.508s1.077 2.91 1.227 3.11c.151.201 2.119 3.236 5.132 4.54.717.311 1.276.496 1.712.635.72.229 1.375.196 1.893.119.578-.085 1.78-.727 2.03-1.429.251-.702.251-1.304.175-1.429-.071-.125-.271-.201-.571-.351z" />
+                    </svg></a>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm hidden transition-all duration-300">
+        <div class="fixed inset-y-0 right-0 w-72 bg-white shadow-2xl flex flex-col p-8 gap-8 transform transition-transform duration-300 translate-x-full"
+            id="mobile-menu-drawer">
+            <div class="flex items-center justify-between border-b pb-4">
+                <div class="flex items-center gap-2"><img src="images/logo.png" alt="Logo"
+                        class="h-10 w-auto logo-animate"></div><button id="close-menu"
+                    class="text-secondary p-2 hover:bg-gray-100 rounded-full transition-colors"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <nav class="flex flex-col gap-6 text-right"><a
+                    class="text-lg font-bold text-secondary hover:text-primary transition-colors flex items-center gap-3"
+                    href="index.html"><span class="material-symbols-outlined">home</span>الرئيسية </a><a
+                    class="text-lg font-bold text-secondary hover:text-primary transition-colors flex items-center gap-3"
+                    href="Src/about.html"><span class="material-symbols-outlined">info</span>من نحن </a><a
+                    class="text-lg font-bold text-secondary hover:text-primary transition-colors flex items-center gap-3"
+                    href="Src/services.html"><span class="material-symbols-outlined">design_services</span>خدماتنا
+                </a><a
+                    class="text-lg font-bold text-secondary hover:text-primary transition-colors flex items-center gap-3"
+                    href="Src/contact.html"><span class="material-symbols-outlined">mail</span>تواصل معنا </a>
+            </nav>
+            <div class="mt-auto pt-8 border-t border-gray-100"><a href="Src/contact.html"
+                    class="w-full bg-primary hover:bg-primary/90 text-secondary font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all"><span>استشارة
+                        مجانية</span><span class="material-symbols-outlined text-xl">arrow_back</span></a>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="Src/analytics.js"></script>
+    <script>const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const menuLinks = mobileMenu.querySelectorAll('nav a');
+
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+
+            setTimeout(() => {
+                mobileMenuDrawer.classList.remove('translate-x-full');
+            }
+
+                , 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenuDrawer.classList.add('translate-x-full');
+
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }
+
+                , 300);
+            document.body.style.overflow = '';
+        }
+
+        if (menuBtn) menuBtn.addEventListener('click', openMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMenu();
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Scroll Reveal Animation Logic
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        }
+
+            ;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, no need to observe anymore
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+            , observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
